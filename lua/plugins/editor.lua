@@ -23,7 +23,7 @@ return {
     },
   },
 
-  -- doest't work...
+  -- doest't work yet ...
   -- -- telescope / fzf
   -- {
   --   'nvim-telescope/telescope-fzf-native.nvim',
