@@ -11,6 +11,9 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+require("options")
+require("bindings")
+
 require("lazy").setup({
   spec = {
     import = "plugins"
@@ -19,6 +22,7 @@ require("lazy").setup({
     lazy = false,
     version = false,
   },
-  install = { colorscheme = { "tokyonight" } },
+  install = { colorscheme = { "catppuccin" } },
   checker = { enabled = true }
 })
+

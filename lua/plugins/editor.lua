@@ -22,6 +22,8 @@ return {
       },
     },
   },
+ 
+  {'akinsho/toggleterm.nvim', version = "*", config = true},
 
   -- doest't work yet ...
   -- -- telescope / fzf
