@@ -9,8 +9,6 @@ return {
   { import = 'plugins.ui' },
 
   -- Editor plugins
-  {
-    { import = 'plugins.editor' },
-  }
+  { import = 'plugins.editor' },
 
 }

@@ -8,20 +8,18 @@ return {
     event = "VeryLazy",
     opts = {
       lsp = {
-        -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
         override = {
           ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
           ["vim.lsp.util.stylize_markdown"] = true,
           ["cmp.entry.get_documentation"] = true,
         },
       },
-      -- you can enable a preset for easier configuration
       presets = {
-        bottom_search = true, -- use a classic bottom cmdline for search
-        command_palette = true, -- position the cmdline and popupmenu together
-        long_message_to_split = true, -- long messages will be sent to a split
-        inc_rename = false, -- enables an input dialog for inc-rename.nvim
-        lsp_doc_border = false, -- add a border to hover docs and signature help
+        bottom_search = true,
+        command_palette = true,
+        long_message_to_split = true,
+        inc_rename = false,
+        lsp_doc_border = false,
       }
     },
     dependencies = {
@@ -89,9 +87,7 @@ return {
     },
     opts = {
       options = {
-        -- stylua: ignore
         close_command = function(n) require("mini.bufremove").delete(n, false) end,
-        -- stylua: ignore
         right_mouse_command = function(n) require("mini.bufremove").delete(n, false) end,
         diagnostics = "nvim_lsp",
         always_show_bufferline = false,
@@ -172,7 +168,7 @@ return {
     end,
   },
 
-  -- Display a popup with possible key bindings 
+  -- Display a popup with possible key bindings
   {
     "folke/which-key.nvim",
     event = "VeryLazy",
@@ -185,7 +181,7 @@ return {
   -- Icons
   {
     "nvim-tree/nvim-web-devicons",
-    lazy = true 
+    lazy = true
   },
 
   {
@@ -193,14 +189,10 @@ return {
     event = "VimEnter",
     opts = function()
       local logo = [[
-█████  █████                       █████  █████
-░░███  ░░███                       ░░███  ░░███ 
-░███   ░███     █████ ███ █████    ░███   ░███ 
-░███   ░███    ░░███ ░███░░███     ░███   ░███ 
-░███   ░███     ░███ ░███ ░███     ░███   ░███ 
-░███   ░███     ░░███████████      ░███   ░███ 
-░░████████       ░░████░████       ░░████████  
-  ░░░░░░░░         ░░░░ ░░░░         ░░░░░░░░   
+ _._     _,-'""`-._
+(,-.`._,'(       |\`-/|
+    `-.-' \ )-`( , o o)
+          `-    \`_`"'-
       ]]
 
       logo = string.rep("\n", 8) .. logo .. "\n\n"
@@ -208,13 +200,10 @@ return {
       local opts = {
         theme = "doom",
         hide = {
-          -- this is taken care of by lualine
-          -- enabling this messes up the actual laststatus setting after loading a file
           statusline = false,
         },
         config = {
           header = vim.split(logo, "\n"),
-          -- stylua: ignore
           center = {
             { action = "Telescope find_files",                                     desc = " Find file",       icon = " ", key = "f" },
             { action = "ene | startinsert",                                        desc = " New file",        icon = " ", key = "n" },
@@ -237,7 +226,6 @@ return {
         button.key_format = "  %s"
       end
 
-      -- close Lazy and re-open when the dashboard is ready
       if vim.o.filetype == "lazy" then
         vim.cmd.close()
         vim.api.nvim_create_autocmd("User", {
@@ -250,7 +238,5 @@ return {
 
       return opts
     end,
-  } 
-
-
+  }
 }
