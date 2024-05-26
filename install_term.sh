@@ -1,7 +1,11 @@
 #!/bin/bash
 
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
-  INSTALL_CMD="sudo apt update && sudo apt install -y wezterm"
+  curl -fsSL https://apt.fury.io/wez/gpg.key | sudo gpg --yes --dearmor -o /usr/share/keyrings/wezterm-fury.gpg
+  if ! grep -Rq "^deb .*https://apt.fury.io/wez" /etc/apt/sources.list /etc/apt/sources.list.d/; then
+    echo 'deb [signed-by=/usr/share/keyrings/wezterm-fury.gpg] https://apt.fury.io/wez/ * *' | sudo tee /etc/apt/sources.list.d/wezterm.list
+  fi
+  INSTALL_CMD="sudo apt update && sudo apt install wezterm"
 elif [[ "$OSTYPE" == "darwin"* ]]; then
   INSTALL_CMD="brew install --cask wezterm"
 elif [[ "$OSTYPE" == "cygwin" ]] || [[ "$OSTYPE" == "msys" ]] || [[ "$OSTYPE" == "win32" ]]; then
@@ -25,7 +29,11 @@ case "$OSTYPE" in
     if ! fc-list | grep -qi "0xProto"; then
       echo "0xProto font is not installed. Installing..."
       curl -LO https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/0xProto.zip
-      unzip -j 0xProto.zip "0xProtoNerdFontMono-Regular.ttf" -d "$HOME/Library/Fonts"
+      if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+        unzip -j 0xProto.zip "0xProtoNerdFontMono-Regular.ttf" -d "$HOME/.local/share/fonts"
+      else
+        unzip -j 0xProto.zip "0xProtoNerdFontMono-Regular.ttf" -d "$HOME/Library/Fonts"
+      fi
       fc-cache -fv
       rm -f 0xProto.zip
       echo "0xProto font has been installed."
