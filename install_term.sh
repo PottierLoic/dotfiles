@@ -23,14 +23,14 @@ fi
 case "$OSTYPE" in
   linux-gnu*|darwin*)
     if ! fc-list | grep -qi "Fira Code"; then
-        echo "Fira Code font is not installed. Installing..."
-        curl -LO https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/FiraCode.zip
-        unzip -j FiraCode.zip "FiraCodeNerdFontMono-Regular.ttf" -d "$HOME/.fonts"
-        fc-cache -fv
-        rm -f FiraCode.zip
-        echo "Fira Code font has been installed."
+      echo "Fira Code font is not installed. Installing..."
+      curl -LO https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/FiraCode.zip
+      unzip -j FiraCode.zip "FiraCodeNerdFontMono-Regular.ttf" -d "$HOME/Library/Fonts"
+      fc-cache -fv
+      rm -f FiraCode.zip
+      echo "Fira Code font has been installed."
     else
-        echo "Fira Code font is already installed."
+      echo "Fira Code font is already installed."
     fi
     ;;
   cygwin*|msys*|win32*)
