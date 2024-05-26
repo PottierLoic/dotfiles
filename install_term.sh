@@ -1,9 +1,21 @@
 #!/bin/bash
 
+if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+  INSTALL_CMD="sudo apt update && sudo apt install -y wezterm"
+elif [[ "$OSTYPE" == "darwin"* ]]; then
+  INSTALL_CMD="brew install --cask wezterm"
+elif [[ "$OSTYPE" == "cygwin" ]] || [[ "$OSTYPE" == "msys" ]] || [[ "$OSTYPE" == "win32" ]]; then
+  INSTALL_CMD="winget install wez.wezterm"
+else
+  echo "Unsupported operating system. Exiting."
+  exit 1
+fi
+
 if ! command -v wezterm &> /dev/null
 then
   echo "WezTerm is not installed. Installing WezTerm via winget..."
-  winget install wez.wezterm
+  eval $INSTALL_CMD
+  echo "WezTerm installation complete"
 else
   echo "WezTerm is already installed."
 fi
