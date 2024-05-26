@@ -26,11 +26,23 @@ else
 fi
 
 if [ -d "$NVIM_PATH" ]; then
-  echo "Backing up existing nvim configuration..."
-  rm -rf "${NVIM_PATH}.bak"
-  mv "$NVIM_PATH" "${NVIM_PATH}.bak"
-  rm -rf "${NVIM_PATH}-data.bak"
-  mv "${NVIM_PATH}-data" "${NVIM_PATH}-data.bak"
+  if diff -qr "$NVIM_PATH" nvim/ > /dev/null; then
+    echo "Existing configuration is the same as the new configuration. No backup needed."
+  else
+    echo "Configuration has changed. Backing up existing nvim configuration..."
+    if [ -d "${NVIM_PATH}.bak" ]; then
+      echo "Removing old backup..."
+      rm -rf "${NVIM_PATH}.bak"
+    fi
+    if [ -d "${NVIM_PATH}-data.bak" ]; then
+      echo "Removing old data backup..."
+      rm -rf "${NVIM_PATH}-data.bak"
+    fi
+    mv "$NVIM_PATH" "${NVIM_PATH}.bak"
+    if [ -d "${NVIM_PATH}-data" ]; then
+      mv "${NVIM_PATH}-data" "${NVIM_PATH}-data.bak"
+    fi
+  fi
 else
   echo "No existing nvim configuration found."
 fi

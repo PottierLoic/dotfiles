@@ -14,7 +14,6 @@ vim.o.showcmd = true
 -- Scroll size
 local scroll = 8
 vim.o.scrolloff = scroll
-vim.o.sidescrollofff = scroll
 
 -- Handle hidden characters
 vim.o.list = true
