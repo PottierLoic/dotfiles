@@ -2,7 +2,7 @@
 local indent = 2
 vim.o.expandtab = true      -- Turn tab into space
 vim.o.shiftwidth = indent   -- Size of a Tab keypresss
-vim.o.tabstop = indent      -- Size o a tab
+vim.o.tabstop = indent      -- Size of a tab
 vim.o.smartindent = true    -- Keep track of location
 
 -- Default status line

@@ -34,14 +34,7 @@ if [ -d "$NVIM_PATH" ]; then
       echo "Removing old backup..."
       rm -rf "${NVIM_PATH}.bak"
     fi
-    if [ -d "${NVIM_PATH}-data.bak" ]; then
-      echo "Removing old data backup..."
-      rm -rf "${NVIM_PATH}-data.bak"
-    fi
     mv "$NVIM_PATH" "${NVIM_PATH}.bak"
-    if [ -d "${NVIM_PATH}-data" ]; then
-      mv "${NVIM_PATH}-data" "${NVIM_PATH}-data.bak"
-    fi
   fi
 else
   echo "No existing nvim configuration found."
