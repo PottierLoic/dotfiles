@@ -17,6 +17,7 @@ return {
 				integrations = {
 					cmp = true,
 					dashboard = true,
+					bufferline = true,
 					indent_blankline = { enabled = true },
 					neotree = true,
 					noice = true,
@@ -24,6 +25,7 @@ return {
 					treesitter = true,
 				},
 			})
+			vim.cmd.colorscheme("catppuccin")
 		end,
 	},
 	{ "nyoom-engineering/oxocarbon.nvim" },
