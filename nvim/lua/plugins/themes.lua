@@ -1,11 +1,12 @@
 return {
+  { 'folke/tokyonight.nvim' },
+  { 'rebelot/kanagawa.nvim' },
   {
     "catppuccin/nvim",
-    name = "catppucin",
+    name = "catppuccin",
     priority = 10000,
     config = function()
       require("catppuccin").setup({
-        flavour = "auto",
         background = {
           light = "latte",
           dark = "mocha",
@@ -19,10 +20,10 @@ return {
           noice = true,
           telescope = true,
           treesitter = true,
-
         }
       })
       vim.cmd.colorscheme("catppuccin")
     end
-  }
+  },
+  { 'nyoom-engineering/oxocarbon.nvim' },
 }

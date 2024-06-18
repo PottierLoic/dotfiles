@@ -4,12 +4,6 @@ local function map(mode, lhs, rhs, desc)
   vim.api.nvim_set_keymap(mode, lhs, rhs, opts)
 end
 
--- General
-map('n', '<C-s>', '<cmd>w<cr>', 'Save file')
-map('i', '<C-s>', '<cmd>w<cr><esc>', 'Save file')
-map('v', '<C-s>', '<cmd>w<cr><esc>', 'Save file')
-map('t', '<C-s>', '<C-\\><C-n><cmd>w<cr><esc>', 'Save file')
-
 -- Normal mode
 map('n', '<C-h>', '<C-w>h', 'Go to left window')
 map('n', '<C-j>', '<C-w>j', 'Go to down window')
@@ -28,13 +22,6 @@ map('n', '<S-Right>', ':vertical resize -2<CR>', 'Resize right')
 
 map('n', '<TAB>', ':bnext<CR>', 'Next buffer')
 map('n', '<S-TAB>', ':bprevious<CR>', 'Previous buffer')
-
-map('n', '<A-Up>', ':m .-2<CR>==', 'Move line up')
-map('n', '<A-Down>', ':m .+1<CR>==', 'Move line down')
-
--- Visual mode
-map('v', '<', '<gv', 'Retab left and keep selected')
-map('v', '>', '>gv', 'Retab right and keep selected')
 
 -- Terminal mode
 map('t', '<Esc>', '<C-\\><C-n>', 'Escape terminal')
