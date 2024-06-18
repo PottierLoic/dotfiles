@@ -1,5 +1,6 @@
 local wezterm = require 'wezterm'
 local config = wezterm.config_builder()
+
 config.color_scheme = 'AdventureTime'
 config.font = wezterm.font '0xProto Nerd Font Mono'
 
@@ -37,7 +38,6 @@ config.colors = {
 
 config.window_background_opacity = 0.90
 config.window_decorations = "RESIZE"
-config.window_close_confirmation = "AlwaysPrompt"
 config.scrollback_lines = 3000
 config.default_workspace = "home"
 

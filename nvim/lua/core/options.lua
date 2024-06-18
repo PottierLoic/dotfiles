@@ -1,9 +1,9 @@
 -- Default indentation options
 local indent = 2
-vim.o.expandtab = true      -- Turn tab into space
-vim.o.shiftwidth = indent   -- Size of a Tab keypresss
-vim.o.tabstop = indent      -- Size of a tab
-vim.o.smartindent = true    -- Keep track of location
+vim.o.expandtab = true -- Turn tab into space
+vim.o.shiftwidth = indent -- Size of a Tab keypresss
+vim.o.tabstop = indent -- Size of a tab
+vim.o.smartindent = true -- Keep track of location
 
 -- Default status line
 local height = 2
@@ -36,4 +36,4 @@ vim.o.ignorecase = true
 vim.o.smartcase = true
 
 -- Clipboard
-vim.o.clipboard = 'unnamed,unnamedplus'
+vim.o.clipboard = "unnamed,unnamedplus"

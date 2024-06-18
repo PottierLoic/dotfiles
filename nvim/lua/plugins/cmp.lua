@@ -2,11 +2,8 @@ return {
   "hrsh7th/nvim-cmp",
   dependencies = {
     "onsails/lspkind.nvim",         -- VSCode pictogram
-
     "L3MON4D3/LuaSnip",             -- Lua snippets
-    "rafamadriz/friendly-snippets", -- Snippets collection for Luasnip
-
-    "hrsh7th/nvim-cmp",             -- Completion
+    "rafamadriz/friendly-snippets", -- Snippets collection for Luasnip 
     "hrsh7th/cmp-buffer",           -- Buffer source
     "hrsh7th/cmp-path",             -- Path source
     "hrsh7th/cmp-cmdline",          -- Cmdline completion

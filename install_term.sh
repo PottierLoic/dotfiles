@@ -50,6 +50,10 @@ case "$OSTYPE" in
     ;;
 esac
 
+echo "Copying .shared_colorscheme to $\HOME/.shared_colorschene"
+cp ./term/.shared_colorscheme "$HOME/.shared_colorscheme"
+echo ".shared_colorscheme has been copied successfully"
+
 echo "Copying .wezterm.lua to $\HOME/.wezterm.lua"
 cp ./term/.wezterm.lua "$HOME/.wezterm.lua"
 echo ".wezterm.lua has been copied successfully."
