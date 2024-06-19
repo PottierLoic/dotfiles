@@ -9,6 +9,7 @@ return {
 					javascript = { { "prettierd", "prettier" } },
 					c = { "clang-format" },
 					cpp = { "clang-format" },
+					rust = { "rustfmt" },
 				},
 			})
 			vim.api.nvim_create_autocmd("BufWritePre", {
@@ -19,6 +20,7 @@ return {
 			})
 		end,
 	},
+	-- automatically install the formatters above
 	{
 		"zapling/mason-conform.nvim",
 		dependencies = {
