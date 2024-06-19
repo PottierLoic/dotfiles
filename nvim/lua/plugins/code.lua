@@ -15,22 +15,18 @@ return {
 	},
 	{
 		"echasnovski/mini.cursorword",
-		version = "*",
 		config = function()
 			require("mini.cursorword").setup()
 		end,
 	},
 	{
 		"echasnovski/mini.move",
-		version = "*",
 		config = function()
 			require("mini.move").setup()
 		end,
 	},
 	{
 		"kylechui/nvim-surround",
-		version = "*",
-		event = "VeryLazy",
 		config = function()
 			require("nvim-surround").setup({})
 		end,
