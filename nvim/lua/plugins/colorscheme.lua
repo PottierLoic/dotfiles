@@ -22,6 +22,7 @@ return {
 					noice = true,
 					telescope = true,
 					treesitter = true,
+					gitsigns = true,
 				},
 			})
 			vim.cmd.colorscheme("catppuccin")
