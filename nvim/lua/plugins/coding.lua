@@ -9,6 +9,15 @@ return {
 			require("luasnip.loaders.from_vscode").load({})
 		end,
 	},
+	-- vscode pictograms for cmp
+	{
+		"onsails/lspkind.nvim",
+		config = function()
+			require("lspkind").init({
+				mode = "symbol_text",
+			})
+		end,
+	},
 	-- Autocompletion
 	{
 		"hrsh7th/nvim-cmp",
@@ -18,6 +27,7 @@ return {
 			"hrsh7th/cmp-buffer",
 			"hrsh7th/cmp-path",
 			"hrsh7th/cmp-cmdline",
+			"onsails/lspkind.nvim",
 		},
 		config = function()
 			vim.api.nvim_set_hl(0, "CmpGhostText", { link = "Comment", default = true })
@@ -61,6 +71,11 @@ return {
 						end
 					end, { "i", "s" }),
 				}),
+
+				-- VSCode pictograms
+				formatting = {
+					format = require("lspkind").cmp_format({ with_text = false, maxwidth = 50 }),
+				},
 
 				-- Setup sources
 				sources = cmp.config.sources({
