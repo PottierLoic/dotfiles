@@ -4,6 +4,7 @@ return {
 	-- Snippet Engine
 	{
 		"L3MON4D3/LuaSnip",
+		dependencies = { "rafmadriz/friendly-snippets" },
 		config = function()
 			require("luasnip.loaders.from_vscode").load({})
 		end,
@@ -16,14 +17,16 @@ return {
 			"hrsh7th/cmp-nvim-lsp",
 			"hrsh7th/cmp-buffer",
 			"hrsh7th/cmp-path",
+			"hrsh7th/cmp-cmdline",
 		},
 		config = function()
+			vim.api.nvim_set_hl(0, "CmpGhostText", { link = "Comment", default = true })
 			local cmp = require("cmp")
 			local luasnip = require("luasnip")
 			vim.opt.pumheight = 10
 			cmp.setup({
 				completion = {
-					completeopt = "menu,menuone",
+					completeopt = "menu,menuone, noselect",
 				},
 
 				-- Snippet engine
@@ -66,13 +69,28 @@ return {
 				}, {
 					{ name = "buffer" },
 				}),
+
+				matching = {
+					disallow_fuzzy_matching = true,
+					disallow_fullfuzy_matching = true,
+					disallow_partial_fuzzy_matching = true,
+					disallow_partial_matching = true,
+					disallow_prefix_unmatching = false,
+				},
+				experimental = {
+					ghost_text = {
+						hl_group = "CmpGhostText",
+					},
+				},
 			})
+
 			cmp.setup.cmdline({ "/", "?" }, {
 				mapping = cmp.mapping.preset.cmdline(),
 				sources = {
 					{ name = "buffer" },
 				},
 			})
+
 			cmp.setup.cmdline(":", {
 				mapping = cmp.mapping.preset.cmdline(),
 				sources = cmp.config.sources({
