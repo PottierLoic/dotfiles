@@ -5,8 +5,6 @@ return {
 		cmd = "Telescope",
 		dependencies = {
 			"nvim-lua/plenary.nvim",
-			"ahmedkhalf/project.nvim",
-			"stevearc/aerial.nvim",
 		},
 		keys = {
 			{
@@ -61,20 +59,6 @@ return {
 				desc = "[f]iletypes",
 			},
 			{
-				"<leader>ta",
-				function()
-					require("telescope").extensions.aerial.aerial()
-				end,
-				desc = "[a]erial",
-			},
-			{
-				"<leader>tp",
-				function()
-					require("telescope").extensions.projects.projects()
-				end,
-				desc = "[p]rojects",
-			},
-			{
 				"<leader>td",
 				function()
 					local ivy = require("telescope.themes").get_ivy()
@@ -84,26 +68,8 @@ return {
 			},
 		},
 		config = function()
-			require("project_nvim").setup({
-				patterns = {
-					".git",
-					"_opam",
-					"_darcs",
-					".hg",
-					".bzr",
-					".svn",
-					"Makefile",
-					"package.json",
-				},
-				show_hidden = true,
-			})
-
-			require("aerial").setup()
-
 			local telescope = require("telescope")
 			local actions = require("telescope.actions")
-			telescope.load_extension("projects")
-			telescope.load_extension("aerial")
 
 			telescope.setup({
 				defaults = require("telescope.themes").get_ivy({

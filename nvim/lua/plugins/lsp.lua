@@ -12,10 +12,8 @@ return {
 						"lua_ls",
 						"rust_analyzer",
 						"jsonls",
-						"cssls",
-						"tsserver",
-						"tailwindcss",
 						"clangd",
+						"markdown_oxide",
 					},
 				})
 			end,
@@ -127,62 +125,6 @@ return {
 					capabilities = capabilities,
 				})
 			end,
-		})
-
-		-- Specific lsp configs
-		-- Rust
-		lsp.rust_analyzer.setup({
-			on_attach = on_attach,
-			capabilities = capabilities,
-		})
-
-		-- Python
-		lsp.basedpyright.setup({
-			on_attach = on_attach,
-			capabilities = capabilities,
-		})
-
-		-- Typescript
-		lsp.tsserver.setup({
-			on_attach = on_attach,
-			capabilities = capabilities,
-			root_dir = lsp.util.root_pattern("package.json"),
-			filetypes = { "javascript", "typescript", "typescriptreact", "typescrip.tsx" },
-		})
-
-		lsp.eslint.setup({
-			on_attach = on_attach,
-			capabilities = capabilities,
-		})
-
-		-- JSON
-		lsp.jsonls.setup({
-			on_attach = on_attach,
-			capabilities = capabilities,
-			init_options = {
-				provideFormatter = false,
-			},
-			commands = {
-				Format = {
-					function()
-						vim.lsp.buf.range_formatting({}, { 0, 0 }, { vim.fn.line("$"), 0 })
-					end,
-				},
-			},
-		})
-
-		-- Latex / Markdown
-		lsp.ltex.setup({
-			on_attach = on_attach,
-			capabilities = capabilities,
-			checkFrequency = "save",
-			settings = {
-				ltex = {
-					disabledRules = {
-						["en"] = { "PROFANITY" },
-					},
-				},
-			},
 		})
 	end,
 }
