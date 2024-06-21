@@ -139,11 +139,4 @@ return {
 			require("mini.cursorword").setup()
 		end,
 	},
-	-- move/indent lines
-	{
-		"echasnovski/mini.move",
-		config = function()
-			require("mini.move").setup()
-		end,
-	},
 }

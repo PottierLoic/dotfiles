@@ -28,7 +28,7 @@ return {
 			vim.cmd.colorscheme("catppuccin")
 		end,
 	},
-	{ "nyoom-engineering/oxocarbon.nvim" },
+	-- Theme manager
 	{
 		"zaldih/themery.nvim",
 		config = function()
@@ -78,20 +78,6 @@ return {
               require('kanagawa').setup({
                 transparent_background = false,
               })
-            ]],
-					},
-					{
-						name = "Oxocarbon Dark",
-						colorscheme = "oxocarbon",
-						before = [[
-              vim.opt.background = "dark"
-            ]],
-					},
-					{
-						name = "Oxocarbon Light",
-						colorscheme = "oxocarbon",
-						before = [[
-              vim.opt.background = "light"
             ]],
 					},
 				},
