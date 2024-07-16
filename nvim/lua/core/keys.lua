@@ -1,5 +1,13 @@
 local map = vim.keymap.set
 
+-- Copy to system clipboard in normal and visual modes
+map("n", "<leader>y", '"+yy') -- normal mode, yank the current line
+map("v", "<leader>y", '"+y') -- visual mode, yank the selection
+
+-- Paste from system clipboard in normal and visual modes
+map("n", "<leader>p", '"+p') -- normal mode, paste after the cursor
+map("v", "<leader>p", '"+p') -- visual mode, replace the selection with paste
+
 -- standard up/down, typing a number N before moves by N line.
 map("n", "j", "v:count == 0 ? 'gj' : 'j'", { desc = "Down", expr = true, silent = true })
 map("n", "<Down>", "v:count == 0 ? 'gj' : 'j'", { desc = "Down", expr = true, silent = true })
