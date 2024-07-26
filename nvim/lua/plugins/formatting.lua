@@ -6,7 +6,6 @@ return {
 				formatters_by_ft = {
 					lua = { "stylua" },
 					python = { "isort", "black" },
-					javascript = { { "prettierd", "prettier" } },
 					c = { "clang-format" },
 					cpp = { "clang-format" },
 					rust = { "rustfmt" },

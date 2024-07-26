@@ -11,7 +11,6 @@ return {
 					ensure_installed = {
 						"lua_ls",
 						"rust_analyzer",
-						"jsonls",
 						"clangd",
 						"markdown_oxide",
 					},
@@ -62,9 +61,9 @@ return {
 
 		-- Diagnostics config
 		local config = {
-			virtual_text = false, -- Disable virtual text
+			virtual_text = true, -- Disable virtual text
 			signs = true, -- Display signs
-			update_in_insert = false, -- In insert mode, doesn't display errors
+			update_in_insert = true, -- In insert mode, doesn't display errors
 		}
 
 		vim.diagnostic.config(config)

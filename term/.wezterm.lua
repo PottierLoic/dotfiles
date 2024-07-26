@@ -33,10 +33,12 @@ config.colors = {
 			bg_color = "28265a",
 			fg_color = "ffffff",
 		},
+		background = "rgba(31, 29, 69, 0.85)",
 	},
 }
 
-config.window_background_opacity = 0.90
+config.window_background_opacity = 0.85
+config.enable_tab_bar = false
 config.window_decorations = "RESIZE"
 config.scrollback_lines = 3000
 config.default_workspace = "home"

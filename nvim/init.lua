@@ -5,4 +5,3 @@ vim.g.loaded_netrwPlugin = 1
 require("core.lazy")
 require("core.options")
 require("core.keys")
-require("theme")

@@ -65,3 +65,8 @@ map("n", "<leader>l", "<cmd>Lazy<cr>", { desc = "Lazy" })
 
 -- Exit terminal
 map("t", "<Esc>", "<C-\\><C-n>", { desc = "Escape terminal" })
+
+-- Open terminal
+map("n", "<leader>ft", "<cmd>ToggleTerm direction=float<cr>", { desc = "Toggle floating terminal" })
+map("n", "<leader>ht", "<cmd>ToggleTerm direction=horizontal<cr>", { desc = "Toggle horizontal terminal" })
+map("n", "<leader>vt", "<cmd>ToggleTerm direction=vertical<cr>", { desc = "Toggle vertical terminal" })

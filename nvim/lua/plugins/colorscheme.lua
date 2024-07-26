@@ -3,6 +3,7 @@
 return {
 	{ "folke/tokyonight.nvim" },
 	{ "rebelot/kanagawa.nvim" },
+	{ "maxmx03/fluoromachine.nvim" },
 	{
 		"catppuccin/nvim",
 		name = "catppuccin",
@@ -32,7 +33,6 @@ return {
 	{
 		"zaldih/themery.nvim",
 		config = function()
-			local config_file = vim.fn.stdpath("config") .. "/lua/theme.lua"
 			require("themery").setup({
 				themes = {
 					{
@@ -80,8 +80,16 @@ return {
               })
             ]],
 					},
+					{
+						name = "Fluoromachine",
+						colorscheme = "fluoromachine",
+						before = [[
+              require('fluoromachine').setup({
+              transparent_background = false,
+              })
+            ]],
+					},
 				},
-				themeConfigFile = config_file,
 				livePreview = true,
 			})
 		end,

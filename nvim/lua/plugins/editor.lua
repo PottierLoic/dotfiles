@@ -107,4 +107,14 @@ return {
       { "<leader>sp", function() require("spectre").open_file_search({select_word=true}) end, desc = "Search on current file" },
 		},
 	},
+	-- Terminal manager
+	{
+		"akinsho/toggleterm.nvim",
+		config = function()
+			require("toggleterm").setup({
+				open_mapping = [[<c-\>]],
+				direction = "float",
+			})
+		end,
+	},
 }
