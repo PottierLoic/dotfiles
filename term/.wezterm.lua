@@ -41,37 +41,37 @@ config.colors = {
 config.keys = {
 	{
 		key = "d",
-		mods = "SUPER|SHIFT",
+		mods = "CTRL|SHIFT",
 		action = wezterm.action.SplitHorizontal({
 			domain = "CurrentPaneDomain",
-			args = { "zsh" },
+			args = {},
 		}),
 	},
 	{
 		key = "d",
-		mods = "SUPER",
+		mods = "CTRL",
 		action = wezterm.action.SplitVertical({
-			args = { "zsh" },
+			args = {},
 		}),
 	},
 	{
 		key = "h",
-		mods = "SUPER",
+		mods = "CTRL",
 		action = wezterm.action.ActivatePaneDirection("Left"),
 	},
 	{
 		key = "j",
-		mods = "SUPER",
+		mods = "CTRL",
 		action = wezterm.action.ActivatePaneDirection("Down"),
 	},
 	{
 		key = "k",
-		mods = "SUPER",
+		mods = "CTRL",
 		action = wezterm.action.ActivatePaneDirection("Up"),
 	},
 	{
 		key = "l",
-		mods = "SUPER",
+		mods = "CTRL",
 		action = wezterm.action.ActivatePaneDirection("Right"),
 	},
 }
