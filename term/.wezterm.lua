@@ -37,6 +37,45 @@ config.colors = {
 	},
 }
 
+-- keybinds
+config.keys = {
+	{
+		key = "d",
+		mods = "SUPER|SHIFT",
+		action = wezterm.action.SplitHorizontal({
+			domain = "CurrentPaneDomain",
+			args = { "zsh" },
+		}),
+	},
+	{
+		key = "d",
+		mods = "SUPER",
+		action = wezterm.action.SplitVertical({
+			args = { "zsh" },
+		}),
+	},
+	{
+		key = "h",
+		mods = "SUPER",
+		action = wezterm.action.ActivatePaneDirection("Left"),
+	},
+	{
+		key = "j",
+		mods = "SUPER",
+		action = wezterm.action.ActivatePaneDirection("Down"),
+	},
+	{
+		key = "k",
+		mods = "SUPER",
+		action = wezterm.action.ActivatePaneDirection("Up"),
+	},
+	{
+		key = "l",
+		mods = "SUPER",
+		action = wezterm.action.ActivatePaneDirection("Right"),
+	},
+}
+
 config.window_background_opacity = 0.85
 config.enable_tab_bar = false
 config.window_decorations = "RESIZE"
