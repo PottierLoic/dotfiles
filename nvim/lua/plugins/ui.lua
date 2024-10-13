@@ -131,7 +131,6 @@ return {
             { action = "Telescope oldfiles", desc = " Recent files", icon = " ", key = "r" },
             { action = "Telescope live_grep", desc = " Find text", icon = " ", key = "g" },
             { action = 'lua require("persistence").load()', desc = " Restore Session", icon = " ", key = "s" },
-            { action = "", desc = " Open projects", icon = " ", key = "p" }, -- TODO : Integrate fpm once done
             { action = "qa", desc = " Quit", icon = " ", key = "q" }
 					},
 					footer = function()

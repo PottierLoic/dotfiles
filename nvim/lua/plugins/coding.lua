@@ -1,17 +1,4 @@
 return {
-	-- Snippets
-	{ "rafamadriz/friendly-snippets" },
-	-- Snippet Engine
-	{
-		"L3MON4D3/LuaSnip",
-		dependencies = { "rafamadriz/friendly-snippets" },
-		event = "InsertEnter",
-		config = function()
-			require("luasnip.loaders.from_vscode").lazy_load({
-				include = { "python", "rust", "c", "c++", "lua", "html" },
-			})
-		end,
-	},
 	-- vscode pictograms for cmp
 	{
 		"onsails/lspkind.nvim",
@@ -35,18 +22,10 @@ return {
 		config = function()
 			vim.api.nvim_set_hl(0, "CmpGhostText", { link = "Comment", default = true })
 			local cmp = require("cmp")
-			local luasnip = require("luasnip")
 			vim.opt.pumheight = 10
 			cmp.setup({
 				completion = {
 					completeopt = "menu,menuone, noselect",
-				},
-
-				-- Snippet engine
-				snippet = {
-					expand = function(args)
-						require("luasnip").lsp_expand(args.body)
-					end,
 				},
 
 				-- Keys
@@ -58,8 +37,6 @@ return {
 					["<TAB>"] = cmp.mapping(function(fallback)
 						if cmp.visible() then
 							cmp.select_next_item()
-						elseif luasnip.expand_or_jumpable() then
-							luasnip.expand_or_jump()
 						else
 							fallback()
 						end
@@ -67,8 +44,6 @@ return {
 					["<S-Tab>"] = cmp.mapping(function(fallback)
 						if cmp.visible() then
 							cmp.select_prev_item()
-						elseif luasnip.jumpable(-1) then
-							luasnip.jump(-1)
 						else
 							fallback()
 						end
@@ -83,7 +58,6 @@ return {
 				-- Setup sources
 				sources = cmp.config.sources({
 					{ name = "nvim_lsp" }, -- Import from lsp
-					{ name = "luasnip" }, -- Luasnip completion
 				}, {
 					{ name = "buffer" },
 				}),
@@ -118,14 +92,6 @@ return {
 				}),
 				matching = { dissalow_symbol_nonprefix_matching = false },
 			})
-		end,
-	},
-	{ "saadparwaiz1/cmp_luasnip" },
-	-- Auto pair
-	{
-		"echasnovski/mini.pairs",
-		config = function()
-			require("mini.pairs").setup()
 		end,
 	},
 	-- Comment
