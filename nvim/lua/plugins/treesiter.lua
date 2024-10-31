@@ -18,6 +18,7 @@ return {
 				"cpp",
 				"rust",
 				"v",
+				"ocaml",
 			},
 			highlight = { enable = true },
 			indent = { enable = true },

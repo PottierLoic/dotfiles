@@ -13,6 +13,7 @@ return {
 						"rust_analyzer",
 						"clangd",
 						"markdown_oxide",
+						"ocamllsp",
 					},
 				})
 			end,
