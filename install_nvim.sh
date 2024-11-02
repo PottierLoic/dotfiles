@@ -8,7 +8,7 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
   INSTALL_CMD="brew install neovim"
 elif [[ "$OSTYPE" == "cygwin" ]] || [[ "$OSTYPE" == "msys" ]] || [[ "$OSTYPE" == "win32" ]]; then
   NVIM_PATH="$LOCALAPPDATA/nvim"
-  INSTALL_CMD="winget install --id=Neovim.Neovim -e"
+  INSTALL_CMD="winget install --id=Neovim.Neovim -e --accept-package-agreements --accept-source-agreements"
 else
   echo "Unknown operating system. Exiting."
   exit 1

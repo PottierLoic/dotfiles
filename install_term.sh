@@ -9,7 +9,7 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
 elif [[ "$OSTYPE" == "darwin"* ]]; then
   INSTALL_CMD="brew install --cask wezterm"
 elif [[ "$OSTYPE" == "cygwin" ]] || [[ "$OSTYPE" == "msys" ]] || [[ "$OSTYPE" == "win32" ]]; then
-  INSTALL_CMD="winget install wez.wezterm"
+  INSTALL_CMD="winget install wez.wezterm --accept-package-agreements --accept-source-agreements"
 else
   echo "Unsupported operating system. Exiting."
   exit 1
