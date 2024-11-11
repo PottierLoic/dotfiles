@@ -16,6 +16,7 @@ return {
 					html = { "prettier" },
 					css = { "prettier" },
 					json = { "prettier" },
+					ocaml = { "ocamlformat" },
 				},
 			})
 			vim.api.nvim_create_autocmd("BufWritePre", {
