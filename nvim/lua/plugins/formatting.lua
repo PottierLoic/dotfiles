@@ -9,6 +9,13 @@ return {
 					c = { "clang-format" },
 					cpp = { "clang-format" },
 					rust = { "rustfmt" },
+					javascript = { "prettier" },
+					javascriptreact = { "prettier" },
+					typescript = { "prettier" },
+					typescriptreact = { "prettier" },
+					html = { "prettier" },
+					css = { "prettier" },
+					json = { "prettier" },
 				},
 			})
 			vim.api.nvim_create_autocmd("BufWritePre", {
