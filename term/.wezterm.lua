@@ -2,11 +2,10 @@ local wezterm = require("wezterm")
 local config = wezterm.config_builder()
 
 config.color_scheme = "AdventureTime"
-config.font = wezterm.font("0xProto Nerd Font Mono")
+config.font = wezterm.font("Fira Code Nerd Font")
 
 -- tab bar
 config.window_frame = {
-	font = wezterm.font("0xProto Nerd Font Mono"),
 	active_titlebar_bg = "#1f1d45",
 	inactive_titlebar_bg = "#f8dcc0",
 }
@@ -37,45 +36,6 @@ config.colors = {
 	},
 }
 
--- keybinds
-config.keys = {
-	{
-		key = "d",
-		mods = "CTRL|SHIFT",
-		action = wezterm.action.SplitHorizontal({
-			domain = "CurrentPaneDomain",
-			args = {},
-		}),
-	},
-	{
-		key = "d",
-		mods = "CTRL",
-		action = wezterm.action.SplitVertical({
-			args = {},
-		}),
-	},
-	{
-		key = "h",
-		mods = "CTRL",
-		action = wezterm.action.ActivatePaneDirection("Left"),
-	},
-	{
-		key = "j",
-		mods = "CTRL",
-		action = wezterm.action.ActivatePaneDirection("Down"),
-	},
-	{
-		key = "k",
-		mods = "CTRL",
-		action = wezterm.action.ActivatePaneDirection("Up"),
-	},
-	{
-		key = "l",
-		mods = "CTRL",
-		action = wezterm.action.ActivatePaneDirection("Right"),
-	},
-}
-
 config.window_background_opacity = 0.85
 config.enable_tab_bar = false
 config.window_decorations = "RESIZE"
@@ -87,5 +47,6 @@ config.window_padding = {
 	top = 0,
 	bottom = 0,
 }
+config.enable_wayland = false
 
 return config

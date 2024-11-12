@@ -1,9 +1,8 @@
 {
 	"layer": "top",
-	// Using margin-bottom with a negative value in order to reduce the space between Hyprland window and waybar
 	"margin-bottom": -10,
 	"margin-top": 10,
-	"modules-left": ["custom/launcher", "cpu","memory", "network","custom/spotify", "tray"],
+	"modules-left": ["custom/launcher", "cpu","memory", "network", "tray"],
 	"modules-center": ["hyprland/workspaces"],
 	"modules-right": ["backlight","pulseaudio","clock", "battery", "custom/power"],
 	
@@ -62,15 +61,7 @@
         "format": " {}%",
         "max-length": 10
     },
-    "custom/spotify": {
-    	"interval": 1,
-	"return-type": "json",
-	"exec": "~/.config/waybar/scripts/spotify.sh",
-	"exec-if": "pgrep spotify",
-	"escape": true
-
-    },
-    "custom/launcher":{
+      "custom/launcher":{
         "format": " ",
         "on-click": "rofi -show drun",
         "on-click-right": "killall rofi"
@@ -79,7 +70,6 @@
         "format": " ",
         "on-click": "bash ~/.config/rofi/leave/leave.sh",
     },
-    // The code following below is given in the great documentation for Waybar status bar under Useful Utilities in Hyprland wiki
     "hyrpland/workspaces": {
     	"format": "{icon}",
 	"on-scroll-up": "hyprctl dispatch workspace e+1",
