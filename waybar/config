@@ -4,13 +4,11 @@
 	"margin-top": 10,
 	"modules-left": ["custom/launcher", "cpu","memory", "network", "custom/spotify", "tray"],
 	"modules-center": ["hyprland/workspaces"],
-	"modules-right": ["backlight", "pulseaudio", "clock", "battery", "custom/power"],
-	
-	
+	"modules-right": ["custom/wallpaper", "pulseaudio", "clock"],
 	"pulseaudio": {
 		"tooltip": false,
 		"scroll-step": 5,
-		"format": "{icon} {volume}%",
+		"format": "{icon}  {volume}%",
 		"format-muted": "{icon} {volume}%",
 		"on-click":"pactl set-sink-mute @DEFAULT_SINK@ toggle",
 		"format-icons": {
@@ -19,37 +17,18 @@
 	},
   "network": {
 		"format-wifi": "",
-		"format-ethernet": "",
+		"format-ethernet": "󰈀",
 		"tooltip-format": "{essid} ({signalStrength}%)",
-		"format-linked": "{ifname} (No IP) ",
+		"format-linked": "{ifname} (No IP) 󰈀",
 		"format-disconnected": "⚠",
 		"format-alt": "{ifname}: {ipaddr}/{cidr}"
-  },
-	"backlight": {
-		"tooltip": false,
-		"format": " {}%",
-		"interval":1,
-		"on-scroll-up": "light -A 5",
-		"on-scroll-down": "light -U 5"
-	},
-  "battery": {
-    "states": {
-      "good": 95,
-      "warning": 30,
-      "critical": 20
-    },
-    "format": "{icon}  {capacity}%",
-    "format-charging": " {capacity}%",
-    "format-plugged": " {capacity}%",
-    "format-alt": "{time} {icon}",
-    "format-icons": ["", "", "", "", ""]
   },
 	"tray":{
     "icon-size":18,
     "spacing": 10
 	},
   "clock": {
-    "format": "{: %I:%M %p   %d/%m/%Y}"
+    "format": "{0:%H:%M:%S} {0:%F}"
   },
   "cpu": {
     "interval": 15,
@@ -64,18 +43,19 @@
   "custom/spotify": {
     "interval": 1,
     "return-type": "json",
-    "exec": "~/.config/waybar/scripts/spotify.sh",
+    "exec": "chmod +x ~/.config/waybar/scripts/spotify.sh && ~/.config/waybar/scripts/spotify.sh",
     "exec-if": "pgrep spotify",
     "escape": true
+  },
+  "custom/wallpaper": {
+    "format": "Wallpaper",
+    "on-click": "chmod +x ~/.config/waybar/scripts/random_wallpaper.sh && ~/.config/waybar/scripts/random_wallpaper.sh",
+    "interval": 600
   },
   "custom/launcher":{
     "format": " ",
     "on-click": "rofi -show drun",
     "on-click-right": "killall rofi"
-  },
-  "custom/power":{
-    "format": " ",
-    "on-click": "bash ~/.config/rofi/leave/leave.sh",
   },
   "hyrpland/workspaces": {
     "format": "{icon}",

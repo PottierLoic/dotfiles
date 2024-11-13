@@ -4,6 +4,9 @@ TARGET_DIR="$HOME/.config/hypr"
 
 if [ -d "$TARGET_DIR" ]; then
   echo "Existing hypr configuration found. Renaming it to hypr.bak"
+   if [ -d "$TARGET_DIR.bak" ]; then
+    rm -rf "$TARGET_DIR.bak"
+  fi
   mv "$TARGET_DIR" "$TARGET_DIR.bak"
 fi
 
