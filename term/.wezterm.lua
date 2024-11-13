@@ -2,7 +2,8 @@ local wezterm = require("wezterm")
 local config = wezterm.config_builder()
 
 config.color_scheme = "AdventureTime"
-config.font = wezterm.font("Fira Code Nerd Font")
+config.font = wezterm.font("FiraCode Nerd Font")
+config.enable_csi_u_key_encoding = true
 
 -- tab bar
 config.window_frame = {
