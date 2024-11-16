@@ -54,7 +54,7 @@
     "escape": true
   },
   "custom/wallpaper": {
-    "format": " ",
+    "format": "",
     "on-click": "chmod +x ~/.config/waybar/scripts/random_wallpaper.sh && ~/.config/waybar/scripts/random_wallpaper.sh",
     "interval": 600
   },
