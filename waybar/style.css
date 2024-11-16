@@ -25,6 +25,7 @@ window#waybar.hidden {
 #memory,
 #tray,
 #workspaces,
+#pulseaudio,
 #custom-wallpaper,
 #custom-launcher,
 #custom-spotify {
@@ -47,9 +48,6 @@ window#waybar.hidden {
 
 #memory {
   color: @color11;
-}
-
-#workspaces {
 }
 
 #workspaces button {
@@ -90,6 +88,12 @@ window#waybar.hidden {
   padding: 0 18px 0 12px;
   color: @color14;
 }
+
+/* #pulseaudio { */
+/*   background-color: @background; */
+/*   padding: 0 12px; */
+/*   margin: 6px 0 0; */
+/* } */
 
 #pulseaudio {
   color: @color13;
