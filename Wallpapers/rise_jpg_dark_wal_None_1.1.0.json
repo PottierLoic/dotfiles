@@ -1,0 +1,27 @@
+{
+    "wallpaper": "C:\\Users\\lopottie\\Documents\\github\\dotfiles\\Wallpapers\\rise.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#0c2f35",
+        "foreground": "#c6dfdc",
+        "cursor": "#c6dfdc"
+    },
+    "colors": {
+        "color0": "#0c2f35",
+        "color1": "#73C4B7",
+        "color2": "#299DC4",
+        "color3": "#34AACB",
+        "color4": "#54B8CC",
+        "color5": "#73C4CE",
+        "color6": "#CFD5AE",
+        "color7": "#c6dfdc",
+        "color8": "#8a9c9a",
+        "color9": "#73C4B7",
+        "color10": "#299DC4",
+        "color11": "#34AACB",
+        "color12": "#54B8CC",
+        "color13": "#73C4CE",
+        "color14": "#CFD5AE",
+        "color15": "#c6dfdc"
+    }
+}

@@ -1,5 +1,7 @@
 #!/bin/bash
 
-echo "Copying .wezterm.lua to $\HOME/.wezterm.lua"
-cp ./term/.wezterm.lua "$HOME/.wezterm.lua"
-echo ".wezterm.lua has been copied successfully."
+echo "copying wezterm config to $\home/"
+
+mkdir -p "$HOME/.wezterm"
+cp ./wezterm/.wezterm.lua "$HOME/.wezterm.lua"
+cp ./wezterm/colors.lua "$HOME/.wezterm/colors.lua"
