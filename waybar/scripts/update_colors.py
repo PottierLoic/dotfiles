@@ -1,3 +1,4 @@
+import sys
 import json
 from pathlib import Path
 import subprocess
@@ -7,14 +8,13 @@ def generate_pywal_colors(image_path):
     image_path = str(image_path.resolve())
     command = ["wal", "-i", image_path, "--backend", "wal", "-n"]
     subprocess.run(command, check=True)
-    print(f"Generated pywal colors for {image_path}")
 
 
 def sanitize_json(file_path):
     with open(file_path, "r", encoding="utf-8") as f:
         content = f.read()
-    sanitized_content = content.replace("\\", "\\\\")
-    return json.loads(sanitized_content)
+    content = content.replace("\\", "\\\\")
+    return json.loads(content)
 
 
 def lua_format(value):
@@ -30,10 +30,6 @@ def lua_format(value):
 def update_wezterm_colors():
     wal_cache_dir = Path.home() / ".cache/wal"
     wal_colors_file = wal_cache_dir / "colors.json"
-
-    if not wal_colors_file.exists():
-        raise FileNotFoundError(f"Pywal colors.json not found at {wal_colors_file}")
-
     wal_colors = sanitize_json(wal_colors_file)
 
     wezterm_colors = {
@@ -68,13 +64,32 @@ def update_wezterm_colors():
 
     wezterm_colors_file = Path.home() / ".wezterm/colors.lua"
     wezterm_colors_file.parent.mkdir(parents=True, exist_ok=True)
-
     with open(wezterm_colors_file, "w", encoding="utf-8") as f:
         f.write("return " + lua_format(wezterm_colors))
-    print(f"WezTerm colors updated at {wezterm_colors_file}")
+
+
+def trigger_wezterm_reload():
+    wezterm_config = Path.home() / ".wezterm.lua"
+    if wezterm_config.exists():
+        with open(wezterm_config, "r+", encoding="utf-8") as f:
+            content = f.read()
+            f.seek(0)
+            f.write(content)
+            f.truncate()
+    print("WezTerm configuration reloaded by resaving .wezterm.lua.")
 
 
 if __name__ == "__main__":
-    image_path = Path("../../Wallpapers/cozy.jpg")
+    if len(sys.argv) < 2:
+        print("Usage: python update_wezterm_colors.py <path_to_image>")
+        sys.exit(1)
+
+    image_path = Path(sys.argv[1])
+    if not image_path.exists():
+        print(f"Error: Image not found at {image_path}")
+        sys.exit(1)
+
     generate_pywal_colors(image_path)
     update_wezterm_colors()
+
+    trigger_wezterm_reload()

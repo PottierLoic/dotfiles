@@ -4,7 +4,7 @@ local config = wezterm.config_builder()
 local color_file = wezterm.config_dir .. "/.wezterm/colors.lua"
 local colors = dofile(color_file)
 
-config.font = wezterm.font("FiraCode Nerd Font")
+config.font = wezterm.font("FiraCode Nerd Font Mono")
 config.enable_csi_u_key_encoding = true
 
 config.colors = colors
