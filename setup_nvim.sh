@@ -17,7 +17,6 @@ if [ -d "$NVIM_PATH" ]; then
       rm -rf "${NVIM_PATH}.bak"
     fi
     mv "$NVIM_PATH" "${NVIM_PATH}.bak"
-  fi
 else
   echo "No existing nvim configuration found."
 fi
