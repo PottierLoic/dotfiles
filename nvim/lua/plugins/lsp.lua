@@ -2,7 +2,6 @@ return {
 	"neovim/nvim-lspconfig",
 	dependencies = {
 		"folke/neodev.nvim",
-		"hrsh7th/cmp-nvim-lsp",
 		{
 			"williamboman/mason-lspconfig.nvim",
 			config = function()
@@ -62,16 +61,10 @@ return {
 
 		vim.diagnostic.config(config)
 
-		-- Capabilities
-		local capabilities = vim.lsp.protocol.make_client_capabilities()
-		capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
-
 		-- Default Mason config
 		require("mason-lspconfig").setup_handlers({
 			function(lsp_server)
-				lsp[lsp_server].setup({
-					capabilities = capabilities,
-				})
+				lsp[lsp_server].setup({})
 			end,
 		})
 	end,

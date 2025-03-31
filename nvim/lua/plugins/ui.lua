@@ -1,16 +1,4 @@
 return {
-	-- Better notifications
-	{
-		"rcarriga/nvim-notify",
-		config = function()
-			require("notify").setup({
-				background_colour = "#000000",
-				timeout = 3000,
-				render = "Compact",
-				stages = "Fade",
-			})
-		end,
-	},
 	-- Tabs on top
 	{
 		"akinsho/bufferline.nvim",
@@ -41,31 +29,6 @@ return {
 			})
 		end,
 	},
-	-- Indent guides
-	{
-		"lukas-reineke/indent-blankline.nvim",
-		main = "ibl",
-		opts = {
-			indent = {
-				char = "|",
-				tab_char = "|",
-			},
-			scope = { show_start = false, show_end = false },
-			exclude = {
-				filetypes = {
-					"dashboard",
-					"neo-tree",
-					"lazy",
-					"mason",
-					"notify",
-					"trouble",
-				},
-			},
-		},
-		config = function(_, opts)
-			require("ibl").setup(opts)
-		end,
-	},
 	-- Replace messages, cmdline ...
 	{
 		"folke/noice.nvim",
@@ -91,73 +54,4 @@ return {
 	{ "nvim-tree/nvim-web-devicons", lazy = true },
 	-- UI components
 	{ "MunifTanjim/nui.nvim", lazy = true },
-	-- Dashboard on startup PANDAA
-	{
-		"nvimdev/dashboard-nvim",
-		event = "VimEnter",
-		opts = function()
-			local logo = [[
-    ⠀⠀⠀⠀⠀⠀⠀⠀⣀⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-    ⠀⠀⠀⠀⠀⠀⣰⣿⣿⣿⣿⣦⣀⣀⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-    ⠀⠀⠀⠀⠀⠀⢿⣿⠟⠋⠉⠀⠀⠀⠀⠉⠑⠢⣄⡀⠀⠀⠀⠀⠀
-    ⠀⠀⠀⠀⠀⢠⠞⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⢿⣿⣿⣦⡀
-    ⠀⣀⠀⠀⢀⡏⠀⢀⣴⣶⣶⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⢻⣿⣿⠇
-    ⣾⣿⣿⣦⣼⡀⠀⢺⣿⣿⡿⠃⠀⠀⠀⠀⣠⣤⣄⠀⠀⠈⡿⠋⠀
-    ⢿⣿⣿⣿⣿⣇⠀⠤⠌⠁⠀⡀⢲⡶⠄⢸⣏⣿⣿⠀⠀⠀⡇⠀⠀
-    ⠈⢿⣿⣿⣿⣿⣷⣄⡀⠀⠀⠈⠉⠓⠂⠀⠙⠛⠛⠠⠀⡸⠁⠀⠀
-    ⠀⠀⠻⣿⣿⣿⣿⣿⣿⣷⣦⣄⣀⠀⠀⠀⠀⠑⠀⣠⠞⠁⠀⠀⠀
-    ⠀⠀⠀⢸⡏⠉⠛⠛⠛⠿⠿⣿⣿⣿⣿⣿⣿⣿⣿⡄⠀⠀⠀⠀⠀
-    ⠀⠀⠀⠸⠀⠀⠀⠀⠀⠀⠀⠀⠈⠉⠛⢿⣿⣿⣿⣿⡄⠀⠀⠀⠀
-    ⠀⠀⠀⢷⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⢻⣿⣿⣿⣿⡀⠀⠀⠀
-    ⠀⠀⠀⢸⣆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⣿⣿⣿⡇⠀⠀⠀
-    ⠀⠀⠀⢸⣿⣦⣀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣼⡟⠻⠿⠟⠀⠀⠀⠀
-    ⠀⠀⠀⠀⣿⣿⣿⣿⣶⠶⠤⠤⢤⣶⣾⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀
-    ⠀⠀⠀⠀⠹⣿⣿⣿⠏⠀⠀⠀⠈⢿⣿⣿⡿⠁⠀⠀⠀⠀⠀⠀⠀
-        ]]
-
-			logo = string.rep("\n", 8) .. logo .. "\n\n"
-
-			local opts = {
-				theme = "doom",
-				hide = {
-					statusline = false,
-				},
-				config = {
-					header = vim.split(logo, "\n"),
-          -- stylua: ignore
-					center = {
-            { action = "Telescope find_files", desc = " Find file", icon = " ", key = "f" },
-            { action = "ene | startinsert", desc = " New file", icon = " ", key = "n" },
-            { action = "Telescope oldfiles", desc = " Recent files", icon = " ", key = "r" },
-            { action = "Telescope live_grep", desc = " Find text", icon = " ", key = "g" },
-            { action = "qa", desc = " Quit", icon = " ", key = "q" }
-					},
-					footer = function()
-						local stats = require("lazy").stats()
-						local ms = (math.floor(stats.startuptime * 100 + 0.5) / 100)
-						return {
-							"⚡ Neovim loaded " .. stats.loaded .. "/" .. stats.count .. " plugins in " .. ms .. "ms",
-						}
-					end,
-				},
-			}
-
-			for _, button in ipairs(opts.config.center) do
-				button.desc = button.desc .. string.rep(" ", 43 - #button.desc)
-				button.key_format = "  %s"
-			end
-
-			if vim.o.filetype == "lazy" then
-				vim.cmd.close()
-				vim.api.nvim_create_autocmd("User", {
-					pattern = "DashboardLoaded",
-					callback = function()
-						require("lazy").show()
-					end,
-				})
-			end
-
-			return opts
-		end,
-	},
 }
