@@ -15,7 +15,7 @@ config.enable_csi_u_key_encoding = true
 
 config.colors = colors
 
-config.window_background_opacity = 0.85
+config.window_background_opacity = 0.90
 config.enable_tab_bar = false
 config.window_decorations = "RESIZE"
 config.scrollback_lines = 3000
@@ -38,6 +38,26 @@ config.keys = {
 		mods = "CTRL|ALT",
 		action = wezterm.action.SplitVertical({ domain = "CurrentPaneDomain" }),
 	},
+  {
+    key = "LeftArrow",
+    mods = "CTRL|ALT",
+    action = wezterm.action.ActivatePaneDirection("Left"),
+  },
+  {
+    key = "RightArrow",
+    mods = "CTRL|ALT",
+    action = wezterm.action.ActivatePaneDirection("Right"),
+  },
+  {
+    key = "UpArrow",
+    mods = "CTRL|ALT",
+    action = wezterm.action.ActivatePaneDirection("Up"),
+  },
+  {
+    key = "DownArrow",
+    mods = "CTRL|ALT",
+    action = wezterm.action.ActivatePaneDirection("Down"),
+  },
 }
 
 return config
