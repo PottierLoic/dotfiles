@@ -27,5 +27,17 @@ config.window_padding = {
 	bottom = 0,
 }
 config.enable_wayland = false
+config.keys = {
+	{
+		key = "h",
+		mods = "CTRL|ALT",
+		action = wezterm.action.SplitHorizontal({ domain = "CurrentPaneDomain" }),
+	},
+	{
+		key = "v",
+		mods = "CTRL|ALT",
+		action = wezterm.action.SplitVertical({ domain = "CurrentPaneDomain" }),
+	},
+}
 
 return config
