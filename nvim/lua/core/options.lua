@@ -37,3 +37,6 @@ vim.o.smartcase = true
 
 -- Clipboard
 vim.o.clipboard = "unnamed,unnamedplus"
+
+-- Specific languages config override
+vim.g.rust_recommended_style = false
