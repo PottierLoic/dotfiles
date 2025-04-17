@@ -2,6 +2,7 @@ return {
 	-- Tabs on top
 	{
 		"akinsho/bufferline.nvim",
+    event = "BufReadPre",
 		config = function()
 			require("bufferline").setup({
 				options = {
@@ -21,6 +22,7 @@ return {
 	-- Bottom status line
 	{
 		"nvim-lualine/lualine.nvim",
+    event = "VeryLazy",
 		config = function()
 			require("lualine").setup({
 				options = {

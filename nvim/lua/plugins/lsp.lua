@@ -1,7 +1,15 @@
 return {
 	"neovim/nvim-lspconfig",
+  event = { "BufReadPre", "BufNewFile" },
 	dependencies = {
 		"folke/neodev.nvim",
+    {
+      "williamboman/mason.nvim",
+      build = ":MasonUpdate",
+      config = function()
+        require("mason").setup()
+      end,
+    },
 		{
 			"williamboman/mason-lspconfig.nvim",
 			config = function()
@@ -11,34 +19,23 @@ return {
 						"rust_analyzer",
 						"clangd",
 						"markdown_oxide",
-						"ocamllsp",
 					},
 				})
 			end,
-			dependencies = {
-				"williamboman/mason.nvim",
-				config = function()
-					require("mason").setup()
-				end,
-			},
 		},
 	},
 
 	config = function()
 		local ok_lsp, lsp = pcall(require, "lspconfig")
 		if not ok_lsp then
-			print("Lspconfig not found")
+			vim.notify("lspconfig nor found", vim.log.levels.ERROR)
 			return
 		end
 
 		local ok_neodev, neodev = pcall(require, "neodev")
-		if not ok_neodev then
-			print("Neodev not found")
-			return
+		if ok_neodev then
+			neodev.setup()
 		end
-
-		-- Add Neovim lua elements for configuration writting
-		neodev.setup()
 
 		-- Diagnostic signs
 		local signs = {
@@ -52,14 +49,14 @@ return {
 			vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
 		end
 
-		-- Diagnostics config
-		local config = {
-			virtual_text = true, -- Disable virtual text
-			signs = true, -- Display signs
-			update_in_insert = true, -- In insert mode, doesn't display errors
-		}
+		-- Diagnostics configuration
+		local config = 
 
-		vim.diagnostic.config(config)
+		vim.diagnostic.config({
+      virtual_text = true,
+	    signs = true,
+		  update_in_insert = true,
+		})
 
 		-- Default Mason config
 		require("mason-lspconfig").setup_handlers({

@@ -2,6 +2,7 @@ return {
 	{
 		"nvim-treesitter/nvim-treesitter",
 		build = ":TSUpdate",
+    event = { "BufReadPost", "BufNewFile" },
 		opts = {
 			auto_install = true,
 			ensure_installed = {
@@ -20,7 +21,10 @@ return {
 				"v",
 				"ocaml",
 			},
-			highlight = { enable = true },
+			highlight = {
+        enable = true,
+        additional_vim_regex_highlighting = false,
+      },
 			indent = { enable = true },
 		},
 		config = function(_, opts)

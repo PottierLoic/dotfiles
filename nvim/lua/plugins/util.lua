@@ -3,9 +3,7 @@ return {
     "folke/snacks.nvim",
     priority = 1000,
     lazy = false,
-    ---@type snacks.Config
     opts = {
-      terminal = { enabled = true },
       dashboard = {
         preset = {
           header = [[
@@ -18,7 +16,12 @@ return {
           ]],
         }
       },
-      indent = { enabled = true },
+      indent = {
+        enabled = true,
+        animate = {
+          enabled = false,
+        },
+      },
       notifier = { enabled = true },
       words = { enabled = true },
     },
@@ -26,6 +29,7 @@ return {
   -- Comment
 	{
 		"echasnovski/mini.comment",
+    event = "VeryLazy",
 		config = function()
 			require("mini.comment").setup()
 		end,
@@ -33,6 +37,7 @@ return {
 	-- Highlight word under cursor
 	{
 		"echasnovski/mini.cursorword",
+    event = { "BufReadPost", "BufNewFile" },
 		config = function()
 			require("mini.cursorword").setup()
 		end,

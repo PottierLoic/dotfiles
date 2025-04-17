@@ -42,7 +42,7 @@ return {
 			"MunifTanjim/nui.nvim",
 		},
 		keys = {
-			{ "<leader>eo", "<cmd>Neotree<CR>", desc = "[o]pen" },
+      { "<leader>eo", "<cmd>Neotree<CR>", desc = "[o]pen" },
 			{ "<leader>ec", "<cmd>Neotree close<CR>", desc = "[c]lose" },
 			{ "<leader>et", "<cmd>NeoTreeShowToggle<CR>", desc = "[t]oggle" },
 		},
@@ -51,12 +51,10 @@ return {
 				default_component_configs = {
 					git_status = {
 						symbols = {
-							-- Change type
 							added = "✚",
 							modified = "",
 							deleted = "✖",
 							renamed = "󰁕",
-							-- Status type
 							untracked = "",
 							ignored = "",
 							unstaged = "󰄱",
@@ -71,6 +69,7 @@ return {
 	-- Show changes since last commit
 	{
 		"lewis6991/gitsigns.nvim",
+    event = { "BufReadPre", "BufNewFile" },
 		config = function()
 			require("gitsigns").setup()
 		end,
