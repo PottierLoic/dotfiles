@@ -1,0 +1,42 @@
+[font]
+normal = { family = "FiraCode Nerd Font Mono" }
+
+[window]
+opacity = 0.90
+decorations = "full"
+padding = { x = 0, y = 0 }
+
+[scrolling]
+history = 3000
+
+[colors.primary]
+foreground = "#d2dce9"
+background = "#272d43"
+
+[colors.cursor]
+text = "#272d43"
+cursor = "#d2dce9"
+
+[colors.selection]
+text = "#272d43"
+background = "#d2dce9"
+
+[colors.normal]
+black   = "#272d43"
+red     = "#9B93B3"
+green   = "#D1939D"
+yellow  = "#99A3CF"
+blue    = "#ADB2D5"
+magenta = "#C7B9D2"
+cyan    = "#B2C2DE"
+white   = "#d2dce9"
+
+[colors.bright]
+black   = "#939aa3"
+red     = "#9B93B3"
+green   = "#D1939D"
+yellow  = "#99A3CF"
+blue    = "#ADB2D5"
+magenta = "#C7B9D2"
+cyan    = "#B2C2DE"
+white   = "#d2dce9"

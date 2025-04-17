@@ -6,7 +6,6 @@ return {
     ---@type snacks.Config
     opts = {
       terminal = { enabled = true },
-      animate = { enabled = true },
       dashboard = {
         preset = {
           header = [[
