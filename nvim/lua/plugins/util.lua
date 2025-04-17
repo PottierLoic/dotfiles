@@ -20,7 +20,6 @@ return {
       },
       indent = { enabled = true },
       notifier = { enabled = true },
-      scroll = { enabled = true },
       words = { enabled = true },
     },
   },
