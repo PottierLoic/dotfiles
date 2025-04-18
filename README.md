@@ -1,12 +1,19 @@
-# dotfile
+# Dotfiles
 
-Theses are my nvim and wezterm configurations.
+All of my (probably not well done) dotfiles !
 
-There are two scripts:
-- `install_term.sh` install wezterm, a Nerd Font and my configuration.
-- `install_nvim.sh` install neovim and my configuration. (It make a backup of any previous config)
+# Arch
+- alacritty
+- hyprland
+- neovim
+- waybar
 
-Execute `install.sh` to setup everything at once.
+# Windows
+- alacritty
+- glazewm
+- nvim
 
-> [!NOTE]
-> This config is probably not well done and I suggest anyone that would like to take inspirations from it to just follow neovim and plugins documentations directly :)
+# mac
+- alacritty
+- neovim
+-  TODO need to find a WM for mac too

@@ -23,5 +23,5 @@ fi
 
 echo "Installing new configuration..."
 mkdir -p "$NVIM_PATH"
-cp -r nvim/* "$NVIM_PATH"
+cp -r ./nvim/* "$NVIM_PATH"
 echo "Installation complete."
