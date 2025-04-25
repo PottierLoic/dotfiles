@@ -24,6 +24,7 @@ setopt HIST_SAVE_NO_DUPS
 unsetopt BEEP
 
 alias ala='alacritty --working-directory=$(pwd) & disown'
+alias please='gsudo'
 alias gs='git status'
 alias gc='git commit -m'
 alias gp='git push'

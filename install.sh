@@ -16,10 +16,7 @@ case "$OS_TYPE" in
     bash shells/wallpapers.sh
     ;;
   MINGW* | MSYS* | CYGWIN*)
-    bash shells/alacritty.sh
-    bash shells/glazewm.sh
-    bash shells/wallpapers.sh
-    bash shells/nvim.sh
+    echo "On windows, you should use install.bat instead !!"
     ;;
   *)
     echo "Unsupported OS: $OS_TYPE"
