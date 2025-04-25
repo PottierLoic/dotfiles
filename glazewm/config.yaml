@@ -25,7 +25,7 @@ window_effects:
   other_windows:
     border:
       enabled: true
-      color: '#a1a1a1'
+      color: '#000000'
 
 window_behavior:
   initial_state: 'tiling'

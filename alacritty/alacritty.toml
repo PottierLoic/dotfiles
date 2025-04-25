@@ -1,8 +1,14 @@
+general.live_config_reload = true
+
+[terminal.shell]
+program = "C:/msys64/msys2_shell.cmd"
+args = ["-defterm -here -no-start -ucrt64 -full-path -shell zsh"]
+
 [font]
 normal = { family = "FiraCode Nerd Font Mono" }
 
 [window]
-opacity = 0.90
+opacity = 0.85
 decorations = "full"
 padding = { x = 0, y = 0 }
 
