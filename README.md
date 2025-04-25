@@ -17,3 +17,12 @@ All of my (probably not well done) dotfiles !
 - alacritty
 - neovim
 -  TODO need to find a WM for mac too
+
+# Installation
+
+There are some dependencies needed for everything to work:
+
+- git
+- bash
+
+
