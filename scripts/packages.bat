@@ -1,40 +1,46 @@
 @echo off
-setlocal
+setlocal enabledelayedexpansion
 
-set "GIT_BASE=%USERPROFILE%\AppData\Local\Programs\Git"
-set "GIT_BIN=%GIT_BASE%\bin"
-set "GIT_USR_BIN=%GIT_BASE%\usr\bin"
-
-echo Checking if Git is installed...
-if not exist "%GIT_BIN%\git.exe" (
-  echo Git not found. Downloading Git installer...
-  powershell -Command "Invoke-WebRequest -Uri https://github.com/git-for-windows/git/releases/download/v2.44.0.windows.1/Git-2.44.0-64-bit.exe -OutFile $env:TEMP\GitSetup.exe"
-  echo Installing Git silently...
-  %TEMP%\GitSetup.exe /SILENT
-) else (
-  echo Git already installed.
+set "INSTALL_EXTRA=false"
+for %%a in (%*) do (
+  if "%%a"=="--extra" set "INSTALL_EXTRA=true"
 )
 
-set "REGKEY=HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\Environment"
-for /f "tokens=3*" %%a in ('reg query "%REGKEY%" /v Path 2^>nul') do set "OLDPATH=%%b"
-echo %OLDPATH% | find /I "%GIT_BIN%" >nul
-if %errorlevel% neq 0 (
-  echo Adding Git to system PATH...
-  set "NEWPATH=%OLDPATH%;%GIT_BIN%;%GIT_USR_BIN%"
-  reg add "%REGKEY%" /v Path /t REG_EXPAND_SZ /d "%NEWPATH%" /f
-  echo PATH updated. You may need to reboot to apply it everywhere.
+REM Bootstrap Scoop if not installed
+where scoop >nul 2>nul
+if errorlevel 1 (
+  echo Scoop not found. Installing Scoop...
+  powershell -Command "Set-ExecutionPolicy RemoteSigned -Scope CurrentUser -Force"
+  powershell -Command "iwr -useb get.scoop.sh | iex"
 ) else (
-  echo Git already in PATH.
+  echo Scoop is already installed.
 )
 
-echo Installing packages via winget...
-winget install --id Alacritty.Alacritty --silent --accept-source-agreements --accept-package-agreements
-winget install --id GlazeWM.GlazeWM --silent --accept-source-agreements --accept-package-agreements
-winget install --id MSYS2.MSYS2 --silent --accept-source-agreements --accept-package-agreements
-winget install --id Neovim.Neovim --silent --accept-source-agreements --accept-package-agreements
-winget install --id 7zip.7zip --silent --accept-source-agreements --accept-package-agreements
-winget install --id Spotify.Spotify --silent --accept-source-agreements --accept-package-agreements
-winget install --id Discord.Discord --silent --accept-source-agreements --accept-package-agreements
+echo Installing packages via scoop...
+scoop install alacritty
+scoop install glazewm
+scoop install msys2
+scoop install neovim
+scoop install 7zip
+
+if "%INSTALL_EXTRA%"=="true" (
+  echo --extra detected, installing extras...
+  scoop bucket add extras
+  scoop install spotify
+  scoop install discord
+)
+
+REM Install Zsh inside MSYS2
+echo Installing Zsh in MSYS2...
+C:\msys64\usr\bin\bash.exe -lc "pacman -Sy --noconfirm zsh git"
+
+REM Install Powerlevel10k for Zsh
+echo Installing Powerlevel10k for Zsh...
+C:\msys64\usr\bin\bash.exe -lc "git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/.powerlevel10k"
+
+REM Optionally set Zsh as default shell
+echo Setting Zsh as default shell in MSYS2...
+C:\msys64\usr\bin\bash.exe -lc "echo 'exec zsh' >> ~/.bashrc"
 
 echo Modifying nsswitch.conf for MSYS2...
 set "NSSWITCH_PATH=C:\msys64\etc\nsswitch.conf"

@@ -7,3 +7,6 @@
 - [] add wallpapers
 - [] enhance rofi style
 - [] enhance volume control style 
+
+WINDOWS
+- [] use scoop instead of winget which is quite bad imo
