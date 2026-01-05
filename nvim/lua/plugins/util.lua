@@ -1,31 +1,4 @@
 return {
-  {
-    "folke/snacks.nvim",
-    priority = 1000,
-    lazy = false,
-    opts = {
-      dashboard = {
-        preset = {
-          header = [[
-██╗      ██████╗ ██╗   ██╗██╗███╗   ███╗
-██║     ██╔═══██╗██║   ██║██║████╗ ████║
-██║     ██║   ██║██║   ██║██║██╔████╔██║
-██║     ██║   ██║╚██╗ ██╔╝██║██║╚██╔╝██║
-███████╗╚██████╔╝ ╚████╔╝ ██║██║ ╚═╝ ██║
-╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝
-          ]],
-        }
-      },
-      indent = {
-        enabled = true,
-        animate = {
-          enabled = false,
-        },
-      },
-      notifier = { enabled = true },
-      words = { enabled = true },
-    },
-  },
   -- Comment
 	{
 		"echasnovski/mini.comment",

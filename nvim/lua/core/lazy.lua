@@ -19,17 +19,5 @@ require("lazy").setup({
 	ui = {
 		border = "rounded",
 	},
-	performance = {
-		rtp = {
-			disabled_plugins = {
-				"gzip",
-				"netrwPlugin",
-				"tarPlugin",
-				"tohtml",
-				"tutor",
-				"zipPlugin",
-			},
-		},
-	},
 	install = { colorscheme = { "catppuccin-mocha" } },
 })

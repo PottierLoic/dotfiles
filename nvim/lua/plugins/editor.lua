@@ -15,6 +15,7 @@ return {
       { "<leader>th", function() require("telescope.builtin").help_tags() end, desc = "[h]help" },
       { "<leader>tk", function() require("telescope.builtin").keymaps() end, desc = "[k]eymaps (normal)" },
       { "<leader>tt", function() require("telescope.builtin").filetypes() end, desc = "[f]iletypes" },
+      { "<leader>tg", function() require("telescope.builtin").git_files() end, desc = "[g]it files" },
     },
 		config = function()
 			local telescope = require("telescope")
@@ -30,48 +31,5 @@ return {
 				}),
 			})
 		end,
-	},
-	-- File tree on the left
-	{
-		"nvim-neo-tree/neo-tree.nvim",
-		branch = "v2.x",
-		cmd = "Neotree",
-		dependencies = {
-			"nvim-lua/plenary.nvim",
-			"nvim-tree/nvim-web-devicons",
-			"MunifTanjim/nui.nvim",
-		},
-		keys = {
-      { "<leader>eo", "<cmd>Neotree<CR>", desc = "[o]pen" },
-			{ "<leader>ec", "<cmd>Neotree close<CR>", desc = "[c]lose" },
-			{ "<leader>et", "<cmd>NeoTreeShowToggle<CR>", desc = "[t]oggle" },
-		},
-		config = function()
-			require("neo-tree").setup({
-				default_component_configs = {
-					git_status = {
-						symbols = {
-							added = "✚",
-							modified = "",
-							deleted = "✖",
-							renamed = "󰁕",
-							untracked = "",
-							ignored = "",
-							unstaged = "󰄱",
-							staged = "",
-							conflict = "",
-						},
-					},
-				},
-			})
-		end,
-	},
-	-- Show changes since last commit
-	{
-		"lewis6991/gitsigns.nvim",
-    event = { "BufReadPre", "BufNewFile" },
-		config = function()
-			require("gitsigns").setup()
-		end,
-	},
+	}
 }

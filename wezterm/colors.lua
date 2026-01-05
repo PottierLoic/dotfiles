@@ -1,1 +1,0 @@
-return {foreground = "#d2dce9", background = "#272d43", cursor_bg = "#d2dce9", cursor_fg = "#272d43", cursor_border = "#d2dce9", selection_fg = "#272d43", selection_bg = "#d2dce9", ansi = {"#272d43", "#9B93B3", "#D1939D", "#99A3CF", "#ADB2D5", "#C7B9D2", "#B2C2DE", "#d2dce9"}, brights = {"#939aa3", "#9B93B3", "#D1939D", "#99A3CF", "#ADB2D5", "#C7B9D2", "#B2C2DE", "#d2dce9"}}

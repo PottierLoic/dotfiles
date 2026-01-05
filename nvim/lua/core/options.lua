@@ -16,8 +16,13 @@ local scroll = 8
 vim.o.scrolloff = scroll
 
 -- Handle hidden characters
-vim.o.list = true
-vim.opt.listchars:append("trail:·")
+vim.opt.list = true
+vim.opt.listchars = {
+  tab = "| ",
+  trail = "·",
+  extends = "…",
+  precedes = "…",
+}
 
 -- UX / UI
 vim.o.termguicolors = true
